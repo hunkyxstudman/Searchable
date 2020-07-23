@@ -16,12 +16,22 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     SearchView searchView;
 
+    String[] names = new String[Names.name.length];
+
+    String[] surnames = new String[Names.surname.length];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         final ArrayList<ItemsBean> itemsBeans = new ArrayList<>();
+        names   =  Names.name;
+        surnames = Names.surname;
+
+        for(int i = 0; i<100; i++)
+        {
+            itemsBeans.add(new ItemsBean(names[i], surnames[i]));
+        }
         itemsBeans.add(new ItemsBean("Ajay", "Sharma"));
         itemsBeans.add(new ItemsBean("Rahul", "Sharma"));
         itemsBeans.add(new ItemsBean("Ram", "Sharma"));
